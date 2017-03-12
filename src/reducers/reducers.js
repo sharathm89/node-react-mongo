@@ -1,13 +1,13 @@
 import { combineReducers } from 'redux'
 
-const immutableState = {
+const productState = {
   fetching: false,
   product : {},
   products: []
 };
 
 
-function todos(state = immutableState, action) 
+function crudProducts(state = productState, action) 
 {
     switch (action.type) {
 	
@@ -72,8 +72,8 @@ function todos(state = immutableState, action)
    }
 }
 
-const todoApp = combineReducers({
-   todos
+const productApp = combineReducers({
+   crudProducts
 })
 
-export default todoApp
+export default productApp

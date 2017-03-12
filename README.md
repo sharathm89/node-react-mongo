@@ -1,9 +1,8 @@
-# All great things combined together
-
+# CRUD Operations (Products)
 
 <i>Back End:<i>
-   * Data storage : MongoDB Azure
-   * Server Side  : NodeJS Azure
+   * Data storage : MongoDB  mongodb://reactmongo.cloudapp.net/reactmongo / mongodb://localhost/reactmongo
+   * Server Side  : NodeJS
     
 <i>Client and Server communication </i>
    * GraphQL
@@ -13,30 +12,22 @@
    * Routing     : React-Router
    * Data Flow   : Redux
     
-<i>Bundler:<i>
-   * Webpack
-    
+
 <i>Java Script Standard:<i>
    * ES6
-     
-<i>Hosting </i>
-   * Azure
 
-###For Live website Demo please visite : [Click me](https://node-mongo-graphql.herokuapp.com/)
 
-###For Live GraphQL Demo please visite : [Click me](https://node-mongo-graphql.herokuapp.com/api)
+<i>GraphQL Queries</i>
 
-<i>Simple GraphQL query</i>
+`query{  products { _id title price quantity imgUri }}`
+`query{  product(_id : "58beb7f7093aa75fce6ee845"),  { _id quantity price title imgUri}`
+`mutation{ deleteProduct(_id : "58c26ff666b0ee0bf1c1ac9d"), { _id status } }`
+`mutation{  editProduct(_id : "58beb7f7093aa75fce6ee845",  title : "beans vegetable", quantity : 450, price : 100.50),  { _id quantity price title imgUri }}`
+`mutation{  createProduct(title : "beans vegetable", quantity : 450, price : 100.50),  {_id quantity price title imgUri}}`
 
-`query { Products { id, title } }`
 
 ## Steps to Runing locally
-    1) npm i or yarn
-    2) npm run start or yarn run start
-    3) goto http://localhost:4000/
-    
-
-
-Note: Make sure you have installed webpack globally or you can do it by just running 
-    `npm i -g webpack`
-      
+    1) npm start
+        http://localhost:4000/
+    2) Graphql Link
+        http://localhost:5000/graphql

@@ -26,12 +26,11 @@ exports.close = function(done)
 {
     if (state.db) 
     {
-
+        state.db.close(function(err, result) 
+        {
+            state.db = null;
+            state.mode = null;
+            done(err);
+        });
     }
-    state.db.close(function(err, result) 
-    {
-        state.db = null;
-        state.mode = null;
-        done(err);
-    });
 }

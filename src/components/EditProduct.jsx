@@ -156,7 +156,7 @@ const mapDispatchToProps = (dispatch) => {
 
 const mapStateToProps = (state) => {
   return {
-    product: state.todos.product
+    product: state.crudProducts.product
   }  
 };
 

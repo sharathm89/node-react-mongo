@@ -119,7 +119,7 @@ const mapDispatchToProps = (dispatch) => {
 
 const mapStateToProps = (state) => {
   return {
-    products: state.todos.products
+    products: state.crudProducts.products
   }  
 };
 

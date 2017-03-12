@@ -12,7 +12,7 @@ var app = express();
 var corsOptions = { origin: 'http://localhost:' + packageFile.config.CLIENT_PORT };
 
 
-db.connect(packageFile.config.MONGO_LOCAL_URL, function(err)
+db.connect(packageFile.config.MONGO_URL, function(err)
 {
     if (err) 
     {
@@ -21,7 +21,7 @@ db.connect(packageFile.config.MONGO_LOCAL_URL, function(err)
     } 
     else 
     {
-        console.log("Connected to MongoDB Server : " + packageFile.config.MONGO_LOCAL_URL);
+        console.log("Connected to MongoDB Server : " + packageFile.config.MONGO_URL);
         app.listen(packageFile.config.SERVER_PORT, function() 
         {
             console.log('Listening on port : ' + packageFile.config.SERVER_PORT);
