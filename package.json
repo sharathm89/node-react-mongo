@@ -21,7 +21,10 @@
     "redux-thunk": "^2.2.0"
   },
   "config": {
-    "CLIENT_PORT": 4000
+    "SERVER_PORT": 5000,
+    "CLIENT_PORT" : 4000,
+    "MONGO_LOCAL_URL": "mongodb://localhost/reactmongo",
+    "MONGO_SERVER_URL" : "mongodb://reactmongo.cloudapp.net/reactmongo"
   },
   "devDependencies": {
     "react-scripts": "0.9.4"
