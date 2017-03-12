@@ -1,5 +1,4 @@
 import React from 'react';
-import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux';
 import {getProduct, deleteProduct} from '../actions/actions.js';
 import {Link} from 'react-router';
@@ -35,7 +34,15 @@ class ViewProduct extends React.Component
     {
         return(
 
-            <div style={{border:"1px solid #b2b2b2", padding:"10px", marginTop:"20px"}} className="col-md-12">
+            <div className="container">
+
+                <div className="row">
+                    <div className="col-md-12">
+                        <h1 className="text-center text-primary"><u>CRUD Operations (View)</u></h1>
+                    </div>
+                </div>
+
+                <div style={{border:"1px solid #b2b2b2", padding:"10px", marginTop:"20px"}} className="col-md-6 col-md-offset-3">
                     <div className="form-group">
                         <label>Title: {this.state.title}</label>
                     </div>
@@ -45,17 +52,18 @@ class ViewProduct extends React.Component
                     <div className="form-group">
                         <label>Quantity: {this.state.quantity}</label>
                     </div>
-                     <div className="row" style={{marginBottom:"20px"}}>
+                        <div className="row" style={{marginBottom:"20px"}}>
                         <div className="col-md-12">
-                            <img width="250" height="150" src={this.state.tempImgUri} alt="Invalid Image" />
+                            <img width="250" height="150" src={this.state.tempImgUri} alt="Invalid URL" />
                         </div>
                     </div>
                     <Link to={`/`} className="btn btn-primary">
                         <span>Back</span>
                     </Link>
-                    <button type="button" className="btn btn-danger pull-right" onClick = {(e)=> this.deleteProduct(e)}>Delete</button>
+                    <button type="button" className="btn btn-danger pull-right" onClick={(e)=> this.deleteProduct(e)}>Delete</button>
+                </div>
 
-            </div>
+             </div>
 
         ); 
     }

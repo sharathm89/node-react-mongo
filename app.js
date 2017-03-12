@@ -12,7 +12,6 @@ var corsOptions = {
   origin: 'http://localhost:4000'
 }
 
-
 db.connect('mongodb://localhost/reactmongo', function(err)
 //db.connect('mongodb://reactmongo.cloudapp.net/reactmongo', function(err)
 {

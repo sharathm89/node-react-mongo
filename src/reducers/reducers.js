@@ -1,7 +1,4 @@
 import { combineReducers } from 'redux'
-//import { ADD_TODO } from '../../src/actions/actions.js'
-
-import Immutable from "immutable";
 
 const immutableState = {
   fetching: false,

@@ -14,12 +14,12 @@ import ViewProduct from '../src/components/ViewProduct.jsx';
 import reducers from '../src/reducers/reducers'
 
 
-let createStoreMiddleware = applyMiddleware(thunk)(createStore);
-let store = createStoreMiddleware(reducers);
+let createStoreMiddleware=applyMiddleware(thunk)(createStore);
+let store=createStoreMiddleware(reducers);
 
 
 ReactDOM.render(
-   <Provider store = {store}>
+   <Provider store={store}>
        <Router history={browserHistory}>
             <Route component={App}>
                   <Route path="/" component={ProductList}/>

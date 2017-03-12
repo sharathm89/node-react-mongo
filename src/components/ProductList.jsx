@@ -1,9 +1,7 @@
 import React, { Component } from 'react'
-import { render } from 'react-dom'
 import {getProducts, deleteProduct} from '../actions/actions.js';
 import {Link} from 'react-router';
 import { connect } from 'react-redux';
-import {bindActionCreators} from 'redux';
 
 
 class ProductList extends Component 
@@ -11,10 +9,8 @@ class ProductList extends Component
     
     componentWillMount() 
     {
-        if(this.props.products && this.props.products.length == 0)
+        if(this.props.products && this.props.products.length === 0)
             this.props.getProducts(`query{products {_id title price quantity imgUri }}`);
-        else
-            console.log('not loaded');
     }
 
    render() {
@@ -22,6 +18,13 @@ class ProductList extends Component
       return (
 
             <div className="container">
+
+                <div className="row">
+                    <div className="col-md-12">
+                        <h1 className="text-center text-primary"><u>CRUD Operations (Products)</u></h1>
+                    </div>
+                </div>  
+
 
                 <div className="row" style={{marginBottom: "10px"}}>
                     <div className="col-md-12">
@@ -34,12 +37,14 @@ class ProductList extends Component
                         <div className="table-responsive">
                             <table id="mytable" className="table table-bordered">
                                 <thead>
-                                    <th className="text-danger text-center">Title</th>
-                                    <th className="text-danger text-center">Quanity</th>
-                                    <th className="text-danger text-center">Price</th>
-                                    <th className="text-danger text-center">View</th>
-                                    <th className="text-danger text-center">Edit</th>
-                                    <th className="text-danger text-center">Delete</th>
+                                   <tr>
+                                        <th className="text-danger text-center">Title</th>
+                                        <th className="text-danger text-center">Quanity</th>
+                                        <th className="text-danger text-center">Price</th>
+                                        <th className="text-danger text-center">View</th>
+                                        <th className="text-danger text-center">Edit</th>
+                                        <th className="text-danger text-center">Delete</th>
+                                   </tr>
                                 </thead>
                                 <tbody>
 
@@ -61,7 +66,7 @@ class ProductList extends Component
                                                     </Link>
                                                 </td>
                                                 <td width="75" className="text-center">
-                                                    <button className="btn btn-danger btn-xs" onClick = {(e)=> this.deleteProduct(e, value._id, value.title)}>
+                                                    <button className="btn btn-danger btn-xs" onClick={(e)=> this.deleteProduct(e, value._id, value.title)}>
                                                         <span className="glyphicon glyphicon-trash"></span>
                                                     </button>
                                                 </td>
