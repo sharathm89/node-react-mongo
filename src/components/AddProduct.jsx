@@ -10,7 +10,8 @@ class AddProduct extends React.Component
     constructor(props) 
     {
         super(props);
-        this.state = {title: '', price : '', quantity : '', imgUri : null};
+        
+        this.state = {title: '', price : '', quantity : '', imgUri : '', tempImgUri : "http://thecoachessite.com/new2015/wp-content/uploads/2014/11/default-placeholder-1024x1024-959x540.png"};
 
         this.titleChange = this.titleChange.bind(this);
         this.priceChange = this.priceChange.bind(this);
@@ -38,6 +39,10 @@ class AddProduct extends React.Component
     imgUriChange(event) 
     {
         this.setState({imgUri: event.target.value});
+        if(event.target.value)
+            this.state.tempImgUri = event.target.value;
+        else
+            this.state.tempImgUri = "http://thecoachessite.com/new2015/wp-content/uploads/2014/11/default-placeholder-1024x1024-959x540.png";
     }
 
 
@@ -67,11 +72,11 @@ class AddProduct extends React.Component
                          <input type="text" className="form-control" name="imgUri" 
                                     value={this.state.imgUri} onChange={this.imgUriChange} />
                     </div>
-                    {/*<div className="row">
-                        <div className="col-md-3 col-md-offset-4">
-                        <img src="#"/>
+                    <div className="row" style={{marginBottom:"20px"}}>
+                        <div className="col-md-12">
+                            <img width="150" height="100" src={this.state.tempImgUri} />
                         </div>
-                    </div>*/}
+                    </div>
                     <Link to={`/`} className="btn btn-primary">
                         <span>Back</span>
                     </Link>

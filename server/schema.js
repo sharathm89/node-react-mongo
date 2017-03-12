@@ -1,7 +1,4 @@
-import {
-  GraphQLSchema
-} from 'graphql';
-
+import {GraphQLSchema} from 'graphql';
 
 import mutation from '../server/graphql/mutation/index';
 import queries from '../server/graphql/query/index';

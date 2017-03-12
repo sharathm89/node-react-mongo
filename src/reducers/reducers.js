@@ -57,12 +57,12 @@ function todos(state = immutableState, action)
         case "EDIT_PRODUCT":
         return Object.assign({}, state, 
             {
+                product : {},
                 products: state.products.map((todo, index) => 
                 {
                     if (todo._id === action.response.data.editProduct._id) 
                     {
-                        return Object.assign({}, todo, {title: action.response.data.editProduct.title, quantity: action.response.data.editProduct.quantity,
-                            price: action.response.data.editProduct.price, imgUri: action.response.data.editProduct.imgUri     });
+                        return Object.assign({}, todo, action.response.data.editProduct);
                     }
                     return todo;
                 })

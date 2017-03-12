@@ -102,12 +102,12 @@ export const addProduct = (payload) => {
 export const editProduct = (payload) => {
    return dispatch => 
    {
-       return apiCall(`mutation{editProduct(_id : "${payload._id}", title : "${payload.title}", quantity : "${payload.quantity}", imgUri : "${payload.imgUri}",
-        price : "${payload.price}"), {_id, title, price, quantity, imgUri}}`)
+       return apiCall(`mutation{editProduct(_id : "${payload._id}", title : "${payload.title}", quantity : ${payload.quantity}, imgUri : "${payload.imgUri}",
+        price : ${payload.price}), {_id, title, price, quantity, imgUri}}`)
        .then(response => dispatch(updateProduct(JSON.parse(response))))
        .catch(function(err)
        {
-           console.log("Error in Delete Product : " + err);
+           console.log("Error in Edit Product : " + err);
        });
    }
 }
