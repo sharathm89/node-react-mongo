@@ -9,7 +9,6 @@ export function apiCall(payload)
     console.log("Payload = " + payload);
     request.onreadystatechange = () => 
     {
-      console.log(request.readyState);
       if (request.readyState === 4) 
       {
         resolve(request.responseText);

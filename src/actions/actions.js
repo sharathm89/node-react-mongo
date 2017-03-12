@@ -8,6 +8,13 @@ const getServerProducts = (response) => {
   }
 }
 
+const getServerProduct = (response) => {
+  return {
+    type: "GET_PRODUCT",
+    response: response
+  }
+}
+
 const removeProduct = (response) => {
   return {
     type: "DELETE_PRODUCTS",
@@ -51,6 +58,19 @@ export const getProducts = (payload) => {
 }
 
 
+export const getProduct = (_id) => {
+   return dispatch => 
+   {
+       return apiCall(`query{product(_id : "${_id}"), {_id title price quantity imgUri}}`)
+       .then(response => dispatch(getServerProduct(JSON.parse(response))))
+       .catch(function(err)
+       {
+           console.log("Error in Get Product : " + err);
+       });
+   }
+}
+
+
 export const deleteProduct = (_id) => {
    return dispatch => 
    {
@@ -66,10 +86,6 @@ export const deleteProduct = (_id) => {
 
 
 export const addProduct = (payload) => {
-
- console.log('Came in Add Product function');
- console.log(payload);
- 
    return dispatch => 
    {
        dispatch(addProductRequest());

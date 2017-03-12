@@ -9,6 +9,7 @@ import {
 import Product from '../model/product';
 
 var db = require('../../common/database');
+var ObjectID = require('mongodb').ObjectID;
 
 
 module.exports = {
@@ -29,13 +30,13 @@ module.exports = {
     product: {
       type: Product, 
       args: { 
-        title: { type: new GraphQLNonNull(GraphQLString)},
+        _id: { type: new GraphQLNonNull(GraphQLString)},
       },
       resolve: function(rootValue, args)
       {
           return new Promise((resolve, reject) => 
           {
-              db.get().collection('products').findOne({title : args.title}, (err, data) => {
+              db.get().collection('products').findOne({_id : new ObjectID(args._id)}, (err, data) => {
                 resolve(data);
               });
           });

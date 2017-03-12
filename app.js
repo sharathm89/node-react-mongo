@@ -13,7 +13,8 @@ var corsOptions = {
 }
 
 
-db.connect('mongodb://localhost/reactmongo', function(err)
+//db.connect('mongodb://localhost/reactmongo', function(err)
+db.connect('mongodb://reactmongo.cloudapp.net/reactmongo', function(err)
 {
     if (err) 
     {

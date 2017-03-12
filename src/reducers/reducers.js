@@ -5,6 +5,7 @@ import Immutable from "immutable";
 
 const immutableState = {
   fetching: false,
+  product : {},
   products: []
 };
 
@@ -21,11 +22,17 @@ function todos(state = immutableState, action)
             });
 
 
-        case "DELETE_PRODUCTS":
+        case 'GET_PRODUCT':
+            return Object.assign({}, state, 
+            {
+                fetching : false,
+                product : action.response.data.product
+            });
 
+
+        case "DELETE_PRODUCTS":
         var toDelete = new Set([action.response.data.deleteProduct._id]);
         var newArray = state.products.filter(obj => !toDelete.has(obj._id));
-
         return Object.assign({}, state, 
             {
                 fetching : false,
@@ -34,9 +41,8 @@ function todos(state = immutableState, action)
 
 
         case "ADD_PRODUCT_REQUEST":
-        console.log('Add comment request in reducer');
         return Object.assign({}, state, {
-            fetching:false,
+            fetching:true,
         });
         
 
