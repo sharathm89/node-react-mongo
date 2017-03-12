@@ -74,7 +74,7 @@ class AddProduct extends React.Component
                     </div>
                     <div className="row" style={{marginBottom:"20px"}}>
                         <div className="col-md-12">
-                            <img width="150" height="100" src={this.state.tempImgUri} />
+                            <img width="150" height="100" src={this.state.tempImgUri} alt="Invalid Image" />
                         </div>
                     </div>
                     <Link to={`/`} className="btn btn-primary">

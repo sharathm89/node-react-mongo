@@ -9,6 +9,7 @@ import App from './App';
 import ProductList from '../src/components/ProductList.jsx';
 import AddProduct from '../src/components/AddProduct.jsx';
 import EditProduct from '../src/components/EditProduct.jsx';
+import ViewProduct from '../src/components/ViewProduct.jsx';
 
 import reducers from '../src/reducers/reducers'
 
@@ -24,6 +25,7 @@ ReactDOM.render(
                   <Route path="/" component={ProductList}/>
                   <Route path="/add" component={AddProduct}/>
                   <Route path="/edit/:id" component={EditProduct}/>
+                  <Route path="/view/:id" component={ViewProduct}/>
                   <Route path="*" component={ProductList}/>
             </Route>
       </Router>

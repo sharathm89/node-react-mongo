@@ -34,11 +34,12 @@ class ProductList extends Component
                         <div className="table-responsive">
                             <table id="mytable" className="table table-bordered">
                                 <thead>
-                                    <th className="text-danger">Title</th>
-                                    <th className="text-danger">Quanity</th>
-                                    <th className="text-danger">Price</th>
-                                    <th className="text-danger">Edit</th>
-                                    <th className="text-danger">Delete</th>
+                                    <th className="text-danger text-center">Title</th>
+                                    <th className="text-danger text-center">Quanity</th>
+                                    <th className="text-danger text-center">Price</th>
+                                    <th className="text-danger text-center">View</th>
+                                    <th className="text-danger text-center">Edit</th>
+                                    <th className="text-danger text-center">Delete</th>
                                 </thead>
                                 <tbody>
 
@@ -47,14 +48,19 @@ class ProductList extends Component
                                         return (
                                             <tr key={key}>
                                                 <td>{value.title}</td>
-                                                <td>{value.quantity}</td>
-                                                <td>{value.price}</td>
-                                                <td>
+                                                <td className="text-center">{value.quantity}</td>
+                                                <td className="text-center">{value.price}</td>
+                                                <td width="75" className="text-center">
+                                                    <Link to={`/view/${value._id}`} className="btn btn-success btn-xs">
+                                                        <span className="glyphicon glyphicon-eye-open"></span>
+                                                    </Link>
+                                                </td>
+                                                <td width="75" className="text-center">
                                                     <Link to={`/edit/${value._id}`} className="btn btn-primary btn-xs">
                                                         <span className="glyphicon glyphicon-pencil"></span>
                                                     </Link>
                                                 </td>
-                                                <td>
+                                                <td width="75" className="text-center">
                                                     <button className="btn btn-danger btn-xs" onClick = {(e)=> this.deleteProduct(e, value._id, value.title)}>
                                                         <span className="glyphicon glyphicon-trash"></span>
                                                     </button>
