@@ -37,12 +37,6 @@ function crudProducts(state = productState, action)
             });
 
 
-        case "ADD_PRODUCT_REQUEST":
-        return Object.assign({}, state, {
-            fetching:true,
-        });
-        
-
         case "ADD_PRODUCT_FINISHED":
         return Object.assign({}, state, 
             {
@@ -54,6 +48,7 @@ function crudProducts(state = productState, action)
         case "EDIT_PRODUCT":
         return Object.assign({}, state, 
             {
+                fetching : false,
                 product : {},
                 products: state.products.map((todo, index) => 
                 {
@@ -65,6 +60,10 @@ function crudProducts(state = productState, action)
                 })
             });
 
+        case 'START_LOADING':
+           return Object.assign({}, state, {
+            fetching:true,
+        });
 
       default:
       return state;

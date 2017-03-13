@@ -71,7 +71,7 @@ class ViewProduct extends React.Component
   
     deleteProduct(e)
     {
-        if(confirm(`Are you sure you want to delte the '${this.state.title}' Product ?`)) 
+        if(confirm(`Are you sure you want to delete the '${this.state.title}' Product ?`)) 
         {
             this.props.deleteProduct(this.state._id)
             .then((err, data)=> {

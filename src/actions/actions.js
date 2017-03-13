@@ -22,9 +22,9 @@ const removeProduct = (response) => {
   }
 }
 
-const addProductRequest = () => {
+const startLoading = () => {
   return {
-    type: "ADD_PRODUCT_REQUEST"
+    type: "START_LOADING"
   }
 }
 const addProductFinished = (response) => {
@@ -48,6 +48,7 @@ const updateProduct = (response) => {
 export const getProducts = (payload) => {
    return dispatch => 
    {
+       dispatch(startLoading());
        return apiCall(payload)
        .then(response => dispatch(getServerProducts(JSON.parse(response))))
        .catch(function(err)
@@ -61,6 +62,7 @@ export const getProducts = (payload) => {
 export const getProduct = (_id) => {
    return dispatch => 
    {
+       dispatch(startLoading());
        return apiCall(`query{product(_id : "${_id}"), {_id title price quantity imgUri}}`)
        .then(response => dispatch(getServerProduct(JSON.parse(response))))
        .catch(function(err)
@@ -74,6 +76,7 @@ export const getProduct = (_id) => {
 export const deleteProduct = (_id) => {
    return dispatch => 
    {
+       dispatch(startLoading());
        return apiCall(`mutation{deleteProduct(_id : "${_id}"){_id, status}}`)
        .then(response => dispatch(removeProduct(JSON.parse(response))))
        .catch(function(err)
@@ -88,7 +91,7 @@ export const deleteProduct = (_id) => {
 export const addProduct = (payload) => {
    return dispatch => 
    {
-       dispatch(addProductRequest());
+       dispatch(startLoading());
        return apiCall(payload)
        .then(response => dispatch(addProductFinished(JSON.parse(response))))
        .catch(function(err)
@@ -102,6 +105,7 @@ export const addProduct = (payload) => {
 export const editProduct = (payload) => {
    return dispatch => 
    {
+       dispatch(startLoading());
        return apiCall(`mutation{editProduct(_id : "${payload._id}", title : "${payload.title}", quantity : ${payload.quantity}, imgUri : "${payload.imgUri}",
         price : ${payload.price}), {_id, title, price, quantity, imgUri}}`)
        .then(response => dispatch(updateProduct(JSON.parse(response))))

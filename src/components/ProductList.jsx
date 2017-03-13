@@ -89,7 +89,7 @@ class ProductList extends Component
  
    deleteProduct(e, _id, title)
    {
-        if(confirm(`Are you sure you want to delte the '${title}' Product ?`)) 
+        if(confirm(`Are you sure you want to delete the '${title}' Product ?`)) 
         {
             this.props.deleteProduct(_id);
         }
